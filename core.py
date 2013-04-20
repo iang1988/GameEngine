@@ -23,9 +23,8 @@ while running:
     for e in pygame.event.get():
         if pygame.QUIT==e.type:
             running=False
-        elif pygame.KEYDOWN==e.type:
-            if e.key==pygame.K_ESCAPE:
-                running=False
+        else :
+            pass
     gm.update(t-oldtime)
     gm.draw(screen)
     pygame.display.flip()       

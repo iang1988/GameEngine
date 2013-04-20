@@ -2,9 +2,6 @@ Basic Game Engine in pygame!
 
 ==================
 
-Program Arcade Games 
-Learn Computer Science
-
 
 Resources
 

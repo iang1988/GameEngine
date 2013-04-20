@@ -1,6 +1,6 @@
 import pygame
 import time
-import gamemanager
+import GameManager
 
 
 pygame.init()
@@ -10,7 +10,7 @@ screen_height=700
 screen=pygame.display.set_mode([screen_width,screen_height])
 pygame.display.set_caption("I love Monkeys... and turtles")
 
-gm=gamemanager.GameManager((screen_width,screen_height))
+gm=GameManager.GameManager((screen_width,screen_height))
 
 t=pygame.time.get_ticks()
     

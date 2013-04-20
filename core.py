@@ -18,6 +18,8 @@ t=pygame.time.get_ticks()
 while running:
     oldtime=t
     t=pygame.time.get_ticks()
+    
+    #TODO add event processing system
     for e in pygame.event.get():
         if pygame.QUIT==e.type:
             running=False

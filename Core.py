@@ -1,7 +1,7 @@
 import pygame
 import time
 import GameManager
-
+import InputManager
 
 pygame.init()
 running = True
@@ -10,7 +10,9 @@ screen_height=700
 screen=pygame.display.set_mode([screen_width,screen_height])
 pygame.display.set_caption("I love Monkeys... and turtles")
 
-gm=GameManager.GameManager((screen_width,screen_height))
+
+im=InputManager.InputManager()
+gm=GameManager.GameManager((screen_width,screen_height), im)
 
 t=pygame.time.get_ticks()
     
@@ -24,7 +26,7 @@ while running:
         if pygame.QUIT==e.type:
             running=False
         else :
-            pass
+            im.process(e)
     gm.update(t-oldtime)
     gm.draw(screen)
     pygame.display.flip()       

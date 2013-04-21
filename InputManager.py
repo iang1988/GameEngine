@@ -40,29 +40,34 @@ class InputManager:
 
     def keyPressed(self, code):
         """Press the gameAction associated with the given key code"""
-        action = self.keyActions[code]
-        if action != None:
-            action.press()
+        try:
+            self.keyActions[code].press()
+        except KeyError:
+            pass
+        
            
 
     def keyReleased(self, code):
         """Release the gameAction associated with the given key code"""
-        action = self.keyActions[code]
-        if action != None:
-            action.release()
-
+        try:
+            self.keyActions[code].release()
+        except KeyError:
+            pass
 
     def mousePressed(self, code):
         """Press the gameAction associated with the given mouse code"""
-        action = self.mouseActions[code]
-        if action != None:
-            action.press()
-           
+        try:
+            self.mouseActions[code].press()
+        except KeyError:
+            pass
+
 
     def mouseReleased(self, code):
         """Release the gameAction associated with the given mouse code"""
-        action = self.mouseActions[code]
-        if action != None:
-            action.release()
+        try:
+            self.mouseActions[code].release()
+        except KeyError:
+            pass
+
 
     

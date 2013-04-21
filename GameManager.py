@@ -7,7 +7,7 @@ class GameManager :
         self.size=size
         self.x=0
         self.W=World.World(size)
-        self.im = im
+        self.im = im #copy the input manager passed to us by the core
         
         #input testing
         self.paused = False
@@ -18,12 +18,15 @@ class GameManager :
     def update(self,dtime):
         #check if the action was triggered
         if self.pause.getAmount() > 0:
-            self.paused = not self.paused
+            self.paused = not self.paused 
+            #if the pause button has been pressed since last time
+            #we set it to not itself, which will toggle it to the other value since
+            # not False -> True
+            # not True -> False
 
-        if not self.paused:
+        if not self.paused: #only update the world if we are not paused
             self.W.update(dtime)
 
     def draw(self,screen):
-        if not self.paused:
-            pygame.draw.rect(screen,[0,0,0],[0,0,self.size[0],self.size[1]])
-            self.W.draw(screen)
+        pygame.draw.rect(screen,[0,0,0],[0,0,self.size[0],self.size[1]])
+        self.W.draw(screen)

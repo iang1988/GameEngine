@@ -1,3 +1,4 @@
+
 class GameAction:
     #behavior states
     NORMAL=0
@@ -11,35 +12,35 @@ class GameAction:
     def __init__(self, name, behavior=NORMAL):
         self.name=name
         self.behavior=behavior
-        reset()
+        self.reset()
     
-    def reset():
-        self.state=STATE_RELEASED
+    def reset(self):
+        self.state=self.__class__.STATE_RELEASED
         self.amount=0
 
-    def tap():
-        press()
-        release()
+    def tap(self):
+        self.press()
+        self.release()
 
-    def press(n=1):
-        if self.state != STATE_WAITING_FOR_RELEASED:
-            this.amount+=n
-            state=STATE_PRESSED
+    def press(self, n=1):
+        if self.state != self.__class__.STATE_WAITING_FOR_RELEASE:
+            self.amount+=n
+            state=self.__class__.STATE_PRESSED
 
-    def released ():
-        state=STATE_RELEASED
+    def release(self):
+        self.state=self.__class__.STATE_RELEASED
 
-    def isPressed ():
-        return (getAmount() != 0)
+    def isPressed(self):
+        return (self.getAmount() != 0)
 
-    def getAmount ():
+    def getAmount (self):
         retVal = self.amount
         if retVal != 0:
-            if state==STATE_RELEASED:
+            if self.state==self.__class__.STATE_RELEASED:
                 self.amount=0
 
-            elif behavior==DETECT_INITIAL_PRESS_ONLY:
-                self.state = WAITING_FOR_RELEASE
+            elif behavior==self.__class__.DETECT_INITIAL_PRESS_ONLY:
+                self.state = self.__class__.WAITING_FOR_RELEASE
                 self.amount = 0
 
         return retVal

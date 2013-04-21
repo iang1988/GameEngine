@@ -1,13 +1,20 @@
 #mouse movement unimplemented, only clicking and key presses so far
 #TODO: Add mouse movement stuff
 
+import pygame
+
 class InputManager:
     def __init__(self):
         #dictionaries of actions
         self.keyActions = {}
         self.mouseActions = {}
         
-
+    def process(self, event):
+        """this takes in raw pygame events and figures out what to do with them"""
+        if event.type == pygame.KEYDOWN:
+            self.keyPressed(event.key)
+        elif event.type == pygame.KEYUP:
+            self.keyReleased(event.key)
         
     def mapToKey(self, gameAction, keyCode):
         """adds a key -> gameAction mapping"""

@@ -45,7 +45,7 @@ class InputManager:
         except KeyError:
             pass
         
-           
+    
 
     def keyReleased(self, code):
         """Release the gameAction associated with the given key code"""

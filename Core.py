@@ -25,7 +25,9 @@ while running:
     for e in pygame.event.get():
         if pygame.QUIT==e.type:
             running=False
-        else :
+        elif e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE:
+            running=False
+        else:
             im.process(e)
     gm.update(t-oldtime)
     gm.draw(screen)

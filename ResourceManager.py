@@ -22,7 +22,7 @@ class ResourceManager:
         """Loads all images for game"""
         self.loadImage("crono", 
                        "./Resources/Images/crono.png",
-                       (255,255,255,0)) #third argument is a key, white, and zero alpha
+                       (255,255,255,0)) #third argument is a key, white, and zero alpha meaning white is going to be transparent
         self.loadImage("cronoflip", 
                        "./Resources/Images/cronoflip.png",
                        (255,255,255,0))

@@ -1,29 +1,30 @@
 import pygame
 import random as r
+import Animation
+
 class Sprite:
-    def __init__(self,size):
-        self.size=size
-        self.x,self.y,self.c,self.w,self.h,self.dx,self.dy=0,0,[r.randint(0,255),r.randint(0,255),r.randint(0,255)],50,50,r.randint(-50,50)/100,r.randint(-50,50)/100
+    def __init__(self,ioa,size):
+        if isinstance(ioa,Animation.__class__):
+            self.buildFromAnim(ioa)
+        else:
+            self.buildFromImage(ioa)
         self.x=r.gauss(size[0]/2,80)
         self.y=r.gauss(size[1]/2,80)
-    def update(self,dtime):
-        self.x += self.dx*dtime
-        self.y += self.dy*dtime
 
-        #collision detection
-        if self.x<0:
-            self.x=0
-            self.dx *=-1
-        elif self.x + self.w>self.size[0]:
-            self.x=self.size[0] - self.w
-            self.dx *=-1
-        if self.y<0:
-            self.y=0
-            self.dy *=-1
-        elif self.y + self.h>self.size[1]:
-            self.y=self.size[1] - self.h
-            self.dy *=-1
+    def buildFromImage(self,img):
+        self.anim=Animation.Animation()
+        self.anim.addFrame(img,0)
+
+    def buldFromAnim(self,anim):
+        self.anim=anim
         
+    def update(self,dtime):
+        self.anim.update(dtime)
         
     def draw(self,screen):
-        pygame.draw.rect(screen,self.c,[self.x,self.y,self.w,self.h])
+        #pygame.draw.rect(screen,self.c,[self.x,self.y,self.w,self.h])
+        screen.blit(self.anim.getFrame().img,(self.x,self.y))
+        #()tuple a list that can't be modified
+
+    
+        

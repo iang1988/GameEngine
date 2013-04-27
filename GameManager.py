@@ -1,13 +1,18 @@
 import pygame
 import GameAction as ga
 import World
+from ResourceManager import *
 
-class GameManager :
+class GameManager:
+
     def __init__(self, size, im):
+        self.rm=ResourceManager()
         self.size=size
         self.x=0
-        self.W=World.World(size)
+        self.W=World.World(size,self.rm)
         self.im = im #copy the input manager passed to us by the core
+
+    
         
         #input testing
         self.paused = False
@@ -33,5 +38,5 @@ class GameManager :
             self.W.update(dtime)
 
     def draw(self,screen):
-        pygame.draw.rect(screen,[0,0,0],[0,0,self.size[0],self.size[1]])
+        pygame.draw.rect(screen,[255,255,255],[0,0,self.size[0],self.size[1]])
         self.W.draw(screen)

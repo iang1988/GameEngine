@@ -38,5 +38,5 @@ class GameManager:
             self.W.update(dtime)
 
     def draw(self,screen):
-        pygame.draw.rect(screen,[255,255,255],[0,0,self.size[0],self.size[1]])
+        pygame.draw.rect(screen,[0,0,0],[0,0,self.size[0],self.size[1]])
         self.W.draw(screen)

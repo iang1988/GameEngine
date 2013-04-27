@@ -18,8 +18,6 @@ class ResourceManager:
     def loadImages(self):
         self.images["crono"] = pygame.image.load("./Resources/Images/crono.png")
         self.images["cronoflip"] = pygame.image.load("./Resources/Images/cronoflip.png")
-        self.images["C1"] = pygame.image.load("./Resources/Images/Circle1.png")
-        self.images["C2"] = pygame.image.load("./Resources/Images/Circle2.png")
 
     def getImage(self,name,copy=True):
         if copy:

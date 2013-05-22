@@ -25,7 +25,7 @@ class GameAction:
     def press(self, n=1):
         if self.state != self.__class__.STATE_WAITING_FOR_RELEASE:
             self.amount+=n
-            state=self.__class__.STATE_PRESSED
+            self.state=self.__class__.STATE_PRESSED
 
     def release(self):
         self.state=self.__class__.STATE_RELEASED
@@ -39,7 +39,7 @@ class GameAction:
             if self.state==self.__class__.STATE_RELEASED:
                 self.amount=0
 
-            elif behavior==self.__class__.DETECT_INITIAL_PRESS_ONLY:
+            elif self.behavior==self.__class__.DETECT_INITIAL_PRESS_ONLY:
                 self.state = self.__class__.WAITING_FOR_RELEASE
                 self.amount = 0
 
